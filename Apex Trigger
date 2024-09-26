@@ -1,0 +1,13 @@
+ trigger RoomBookingObject on Room_Booking__c (before insert,before update) {
+ for(Room_Booking__c room : trigger.new){
+ if(room.Check_in__c == true){
+ room.Description__c = 'welcome to Coliving! We are delighted to have you
+ as our valued guest';
+ }else{
+ room.Description__c = 'Please try to checkIn';
+ }
+ if(room.Check_Out__c == true){
+ room.Description__c = 'Thank you for choosing coliving';
+ }
+ }
+ }
